@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html xml:lang="zh-CN" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://topfreevpn.github.io/news/article-72460.htm" />
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>mysql 时间戳定义_mysql之TIMESTAMP（时间戳）用法详解</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+        <meta name="description" content="一、TIMESTAMP的变体 TIMESTAMP时间戳在创建的时候可以有多重不同的特性，如： 1.在创建新记录和修改现有记录的时候都对这个数据列刷新： 2.在创建新记录的时候把这个字段设置为当前时间，" />
+    
+    <!-- Favicon -->
+    <link href="/assets/website/img/v2rayclashfree/favicon.ico" rel="icon">
+
+    <meta name="author" content="最佳免费VPN 机场订阅节点中文网">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://topfreevpn.github.io/news/article-72460.htm" />
+    <meta property="og:site_name" content="最佳免费VPN 机场订阅节点中文网" />
+    <meta property="og:title" content="mysql 时间戳定义_mysql之TIMESTAMP（时间戳）用法详解" />
+    <meta property="og:image" content="https://topfreevpn.github.io/uploads/20240605/e7444b8b576d241390017bdaf98e8c61.webp" />
+        <meta property="og:release_date" content="2025-03-12T06:09:20" />
+    <meta property="og:updated_time" content="2025-03-12T06:09:20" />
+        <meta property="og:description" content="一、TIMESTAMP的变体 TIMESTAMP时间戳在创建的时候可以有多重不同的特性，如： 1.在创建新记录和修改现有记录的时候都对这个数据列刷新： 2.在创建新记录的时候把这个字段设置为当前时间，" />
+        
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="mysql 时间戳定义_mysql之TIMESTAMP（时间戳）用法详解">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+    
+    <!-- Styles -->
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    <link href="/assets/website/css/v2rayclashfree/bootstrap.min.css" rel="stylesheet">
+    <link href="/assets/website/css/v2rayclashfree/fontawesome-all.min.css" rel="stylesheet">
+    <link href="/assets/website/css/v2rayclashfree/swiper.css" rel="stylesheet">
+    <link href="/assets/website/css/v2rayclashfree/styles.css" rel="stylesheet">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-Z43TVP4HME"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-Z43TVP4HME');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+        <!-- Navigation -->
+    <nav id="navbarExample" class="navbar navbar-expand-lg fixed-top navbar-light" aria-label="Main navigation">
+        <div class="container">
+            <a href="/" class="logo">
+                        <span>最佳免费VPN</span>
+                        </a>
+            <!-- Text Logo - Use this if you don't have a graphic logo -->
+            <!-- <a class="navbar-brand logo-text" href="index.html">Ioniq</a> -->
+            <button class="navbar-toggler p-0 border-0" type="button" id="navbarSideCollapse" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="navbar-collapse offcanvas-collapse" id="navbarsExampleDefault">
+                <ul class="navbar-nav ms-auto navbar-nav-scroll">
+                                        <li class="nav-item">
+                        <a class="nav-link" href="/">首页</a>
+                    </li>
+                                        <li class="nav-item">
+                        <a class="nav-link" href="/free-nodes/">免费节点</a>
+                    </li>
+                                        <li class="nav-item">
+                        <a class="nav-link" href="/paid-subscribe/">推荐机场</a>
+                    </li>
+                                        <li class="nav-item">
+                        <a class="nav-link" href="/news/">新闻资讯</a>
+                    </li>
+                                        <li class="nav-item">
+                        <a class="nav-link" href="/client.htm">客户端</a>
+                    </li>
+                                    </ul>
+            </div> <!-- end of navbar-collapse -->
+        </div> <!-- end of container -->
+    </nav> <!-- end of navbar -->
+    <!-- end of navigation -->
+    <!-- Header -->
+    <!-- Header -->
+    <header class="ex-header">
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-10 offset-xl-1">
+                    <h1>mysql 时间戳定义_mysql之TIMESTAMP（时间戳）用法详解</h1>
+                    <p>
+                        <a href="/">首页</a> / <a href="/news/">新闻资讯</a> / <span>正文</span>
+                    </p>
+                </div> <!-- end of col -->
+            </div> <!-- end of row -->
+        </div> <!-- end of container -->
+    </header> <!-- end of ex-header -->
+    <!-- end of header -->
+    <!-- Details 1 -->
+    <div id="details" class="basic-1 bg-gray">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-9">
+                                    <input type="hidden" id="share-website-info" data-name="Clash Node官网订阅站" data-url="https://clashnode.github.io">
+                  				  				  				<div id="content_views" class="htmledit_views"> <div style="font-size:16px;"> <p>一、TIMESTAMP的变体</p> <p>TIMESTAMP时间戳在创建的时候可以有多重不同的特性，如：</p> <p>1.在创建新记录和修改现有记录的时候都对这个数据列刷新：</p> <p>2.在创建新记录的时候把这个字段设置为当前时间，但以后修改时，不再刷新它：</p> <p>3.在创建新记录的时候把这个字段设置为0，以后修改时刷新它：</p> <p>4.在创建新记录的时候把这个字段设置为给定值，以后修改时刷新它：</p> <p>MySQL目前不支持列的Default 为函数的形式,如达到你某列的默认值为当前更新日期与时间的功能,你可以使用TIMESTAMP列类型,下面就详细说明TIMESTAMP列类型</p> <p>二、TIMESTAMP列类型</p> <p>TIMESTAMP值可以从1970的某时的开始一直到2037年，精度为一秒，其值作为数字显示。</p> <p>TIMESTAMP值显示尺寸的格式如下表所示：</p> <p>：</p> <p>“完整”TIMESTAMP格式是14位，但TIMESTAMP列也可以用更短的显示尺寸，创造最常见的显示尺寸是6、8、12、和14。</p> <p>你可以在创建表时指定一个任意的显示尺寸，但是定义列长为0或比14大均会被强制定义为列长14。</p> <p>列长在从1～13范围的奇数值尺寸均被强制为下一个更大的偶数。</p> <p>列如：</p> <p>所有的TIMESTAMP列都有同样的存储大小，使用被指定的时期时间值的完整精度(14位)存储合法的值不考虑显示尺寸。不合法的日期，将会被强制为0存储</p> <p>这有几个含意：</p> <p>1.虽然你建表时定义了列TIMESTAMP(8)，但在你进行数据插入与更新时TIMESTAMP列实际上保存了14位的数据(包括年月日时分</p> <p>秒)，只不过在你进行查询时MySQL返回给你的是8位的年月日数据。如果你使用ALTER</p> <p>TABLE拓宽一个狭窄的TIMESTAMP列，以前被“隐蔽”的信息将被显示。</p> <p>2.同样，缩小一个TIMESTAMP列不会导致信息失去，除了感觉上值在显示时，较少的信息被显示出。</p> <p>3.尽管TIMESTAMP值被存储为完整精度，直接操作存储值的唯一函数是UNIX_TIMESTAMP()；由于MySQL返回</p> <p>TIMESTAMP列的列值是进过格式化后的检索的值，这意味着你可能不能使用某些函数来操作TIMESTAMP列(例如HOUR()或</p> <p>SECOND())，除非TIMESTAMP值的相关部分被包含在格式化的值中。</p> <p>例如，一个TIMESTAMP列只有被定义为TIMESTAMP(10)以上时，TIMESTAMP列的HH部分才会被显示，因此在更短的TIMESTAMP值上使用HOUR()会产生一个不可预知的结果。</p> <p>4.不合法TIMESTAMP值被变换到适当类型的“零”值(00000000000000)。(DATETIME,DATE亦然)</p> <p>例如你可以使用下列语句来验证：</p> <p>你可以使用TIMESTAMP列类型自动地用当前的日期和时间标记INSERT或UPDATE的操作。</p> <p>如果你有多个TIMESTAMP列，只有第一个自动更新。自动更新第一个TIMESTAMP列在下列任何条件下发生：</p> <p>1.列值没有明确地在一个INSERT或LOAD DATA INFILE语句中指定。</p> <p>2.列值没有明确地在一个UPDATE语句中指定且另外一些的列改变值。(注意一个UPDATE设置一个列为它已经有的值，这将不引起TIMESTAMP列被更新，因为如果你设置一个列为它当前的值，MySQL为了效率而忽略更改。)</p> <p>3.你明确地设定TIMESTAMP列为NULL.</p> <p>4.除第一个以外的TIMESTAMP列也可以设置到当前的日期和时间，只要将列设为NULL，或NOW()。</p> <p>第一条指令因设date1、date2为NULL,所以date1、date2值均为当前时间第二条指令因没有设date1、date2列值，第一</p> <p>个TIMESTAMP列date1为更新为当前时间，而二个TIMESTAMP列date2因日期不合法而变为“00000000000000”</p> <p>这条指令没有明确地设定date2的列值，所以第一个TIMESTAMP列date1将被更新为当前时间</p> <p>这条指令因设定date1=date1，所以在更新数据时date1列值并不会发生改变而因设定date2=NOW()，所以在更新数据时date2列值会被更新为当前时间此指令等效为：</p> <p>因MySQL返回的 TIMESTAMP 列为数字显示形式，你可以用DATE_FROMAT()函数来格式化 TIMESTAMP 列，如下所示：</p> <p>在某种程度上，你可以把一种日期类型的值赋给一个不同的日期类型的对象。</p> <p>然而，而尤其注意的是：值有可能发生一些改变或信息的损失：</p> <p>1.如果你将一个DATE值赋给一个DATETIME或TIMESTAMP对象，结果值的时间部分被设置为'00:00:00'，因为DATE值中不包含有时间信息。</p> <p>2.如果你将一个DATETIME或TIMESTAMP值赋给一个DATE对象，结果值的时间部分被删除，因为DATE类型不存储时间信息。</p> <p>3.尽管DATETIME, DATE和TIMESTAMP值全都可以用同样的格式集来指定，但所有类型不都有同样的值范围。</p> <p>例如，TIMESTAMP值不能比1970早，也不能比2037晚，这意味着，一个日期例如'1968-01-01'，当作为一个</p> <p>DATETIME或DATE值时它是合法的，但它不是一个正确TIMESTAMP值！并且如果将这样的一个对象赋值给TIMESTAMP列，它将被变换为</p> <p>0。</p> <p>三、当指定日期值时，当心某些缺陷：</p> <p>1.允许作为字符串指定值的宽松格式能被欺骗。例如，因为“:”分隔符的使用，值'10:11:12'可能看起来像时间值，但是如果在一个日期中使用，上下文将作为年份被解释成'2010-11-12'。值'10:45:15'将被变换到'0000-00-00'，因为'45'不是一个合法的月份。</p> <p>2.以2位数字指定的年值是模糊的，因为世纪是未知的。MySQL使用下列规则解释2位年值：</p> <p>在00-69范围的年值被变换到2000-2069。 在范围70-99的年值被变换到1970-1999。</p> </div> </div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-71807.htm">同安宠物领养中心电话号码多少号（厦门同安宠物店在哪里）</a></p>
+                                        <p>下一个：<a href="/news/article-72462.htm">动物打过狂犬疫苗人还需要打吗（动物打了狂犬疫苗还会得狂犬病吗）</a></p>
+                                    </div>
+                                </div>
+                <div class="col-md-3">
+                    <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/free-nodes/2025-3-10-free-high-speed-nodes.htm" title="最佳免费VPN | 3月10日19.2M/S|免费VPN/SSR/V2ray/Shadowrocket/Clash免费节点订阅分享">最佳免费VPN | 3月10日19.2M/S|免费VPN/SSR/V2ray/Shadowrocket/Clash免费节点订阅分享</a></li>
+                        <li class="py-2"><a href="/news/article-70500.htm" title="动物疫苗法律法规最新（动物疫苗法案）">动物疫苗法律法规最新（动物疫苗法案）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-2-24-free-node-subscribe.htm" title="最佳免费VPN | 2月24日22M/S|免费VPN/SSR/Shadowrocket/V2ray/Clash免费节点订阅分享">最佳免费VPN | 2月24日22M/S|免费VPN/SSR/Shadowrocket/V2ray/Clash免费节点订阅分享</a></li>
+                        <li class="py-2"><a href="/news/article-64774.htm" title="动物疫苗的使用方法及注意事项视频讲解下载 动物疫苗的使用方法及注意事项视频讲解下载">动物疫苗的使用方法及注意事项视频讲解下载 动物疫苗的使用方法及注意事项视频讲解下载</a></li>
+                        <li class="py-2"><a href="/news/article-66004.htm" title="怎么领养狐狸（如何领养狐狸）">怎么领养狐狸（如何领养狐狸）</a></li>
+                        <li class="py-2"><a href="/news/article-67884.htm" title="微信小程序，制作属于自己的Icon图标">微信小程序，制作属于自己的Icon图标</a></li>
+                        <li class="py-2"><a href="/news/article-59439.htm" title="国内十大毒猫粮（2019中国十大毒猫粮）">国内十大毒猫粮（2019中国十大毒猫粮）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-2-18-free-node-subscribe.htm" title="最佳免费VPN | 2月18日21.6M/S|免费VPN/Clash/SSR/Shadowrocket/V2ray免费节点订阅分享">最佳免费VPN | 2月18日21.6M/S|免费VPN/Clash/SSR/Shadowrocket/V2ray免费节点订阅分享</a></li>
+                        <li class="py-2"><a href="/news/article-72460.htm" title="mysql 时间戳定义_mysql之TIMESTAMP（时间戳）用法详解">mysql 时间戳定义_mysql之TIMESTAMP（时间戳）用法详解</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-2-20-free-node-subscribe.htm" title="最佳免费VPN | 2月20日20.9M/S|免费VPN/SSR/V2ray/Clash/Shadowrocket免费节点订阅分享">最佳免费VPN | 2月20日20.9M/S|免费VPN/SSR/V2ray/Clash/Shadowrocket免费节点订阅分享</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">39</span> <a href="/date/2025-03/" title="2025-03 归档">2025-03</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">42</span> <a href="/date/2025-02/" title="2025-02 归档">2025-02</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+
+
+                </div>
+            </div>
+        </div> <!-- end of container -->
+    </div> <!-- end of basic-1 -->
+    <!-- end of details 1 -->
+        <!-- Copyright -->
+    <div class="copyright">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                            <p>
+                                <a href="/">首页</a> | 
+                                <a href="/free-node/">免费节点</a> | 
+                                <a href="/news/">新闻资讯</a> |
+                                <a href="/about-us.htm">关于我们</a> |
+                                <a href="/disclaimer.htm">免责申明</a> |
+                                <a href="/privacy.htm">隐私申明</a> |
+                                <a href="/sitemap.xml">网站地图</a>
+                            </p>
+                    <p class="p-small">
+                        最佳免费VPN 机场订阅节点中文网 版权所有
+                        <br />
+                        Powered by WordPress
+                    </p>
+                </div> <!-- end of col -->
+            </div> <!-- enf of row -->
+        </div> <!-- end of container -->
+    </div> <!-- end of copyright -->
+    <!-- end of copyright -->
+    <!-- Back To Top Button -->
+    <button onclick="topFunction()" id="myBtn">
+        <img src="/assets/website/img/v2rayclashfree/up-arrow.png" alt="alternative">
+    </button>
+    <!-- end of back to top button -->
+    <!-- Scripts -->
+    <script src="/assets/website/js/frontend/v2rayclashfree/jquery-3.2.1.min.js"></script>
+    <script src="/assets/website/js/frontend/v2rayclashfree/bootstrap.min.js"></script> <!-- Bootstrap framework -->
+    <script src="/assets/website/js/frontend/v2rayclashfree/swiper.min.js"></script> <!-- Swiper for image and text sliders -->
+    <script src="/assets/website/js/frontend/v2rayclashfree/purecounter.min.js"></script> <!-- Purecounter counter for statistics numbers -->
+    <script src="/assets/website/js/frontend/v2rayclashfree/replaceme.min.js"></script> <!-- ReplaceMe for rotating text -->
+    <script src="/assets/website/js/frontend/v2rayclashfree/scripts.js"></script> <!-- Custom scripts -->
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script>
+    <script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
