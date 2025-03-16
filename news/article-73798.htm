@@ -116,6 +116,7 @@
                   				  				  				<div id="content_views" class="markdown_views prism-atom-one-light"> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220723/cdef075e9ddcacc45a37cc93a4274499.jpg" alt="java计算器页面的实现"></p> <pre><code>package com.briup.day14;  import java.awt.Color; import java.awt.Container; import java.awt.FlowLayout; import java.awt.Font; import java.awt.event.ActionEvent; import java.awt.event.ActionListener;  import javax.swing.JButton; import javax.swing.JFrame; import javax.swing.JLabel; import javax.swing.JOptionPane; import javax.swing.JTextField;  public class FirstGUI { 	private JFrame jFrame;//容器，相当于桌子 	private Container contentPane;//容器，相当于桌布 	//声明组件 	private JTextField num1Text,num2Text,num3Text; 	private JLabel addLbl,resultLbl; 	private JButton addBtn,cleaBtn,exitBtn; 	// 对容器初始化和设置操作 	public FirstGUI() {      jFrame=new JFrame("计算器"); 		//设置容器大小      jFrame.setSize(500, 200);      //容器初始化位置      jFrame.setLocation(300,200);      //设置容器不能改变大小      jFrame.setResizable(false);      //点击容器退出按钮则退出程序      jFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);      //设置容器颜色      //jFrame.setBackground(Color.GREEN);       //获取桌布         contentPane=jFrame.getContentPane();         Color color=new Color(200,100,199);         contentPane.setBackground(color);         //设置布局管理器，默认是BorderLayout         contentPane.setLayout(new FlowLayout()); 		initGUI(); 	} 	//组件初始化和设置操作 	public void initGUI() { 		//第二步初始化组件 		num1Text=new JTextField(10); 		num2Text=new JTextField(10); 		num3Text=new JTextField(10); 		addLbl=new JLabel("+"); 		resultLbl=new JLabel("="); 		addBtn=new JButton("计算"); 		cleaBtn=new JButton("清空"); 		exitBtn=new JButton("退出"); 		Font font=new Font("楷体",Font.BOLD,22); 		addLbl.setFont(font); 		resultLbl.setFont(font); 		num1Text.setFont(font); 		num2Text.setFont(font); 		num3Text.setFont(font); 		addBtn.setFont(font); 		cleaBtn.setFont(font); 		exitBtn.setFont(font); 		//设置文本框不可编辑 		num3Text.setEditable(false); 		//设置文本框编辑方向 		num1Text.setHorizontalAlignment(JTextField.RIGHT); 		num2Text.setHorizontalAlignment(JTextField.RIGHT); 		num3Text.setHorizontalAlignment(JTextField.RIGHT); 		//第三步将组件添加到容器中 		contentPane.add(num1Text); 		contentPane.add(addLbl); 		contentPane.add(num2Text); 		contentPane.add(resultLbl); 		contentPane.add(num3Text); 		contentPane.add(addBtn); 		contentPane.add(cleaBtn); 		contentPane.add(exitBtn); 		//第四步设置事件监听器 		addBtn.addActionListener(new ActionListener() { 			 			@Override 			public void actionPerformed(ActionEvent e) { 				//事件处理代码 			   String s1=num1Text.getText().trim(); 			   String s2=num2Text.getText().trim(); 			   if(s1.equals("")||s2.equals("")) { 				   //提示框 				   JOptionPane.showMessageDialog(null,"请输入非空数据"); 				   return; 			   } 			  int i1= Integer.parseInt(s1); 			  int i2= Integer.parseInt(s2); 			  int num=i1+i2; 			  num3Text.setText(num+""); 				 			} 		}); 		cleaBtn.addActionListener(new ActionListener() { 			 			@Override 			public void actionPerformed(ActionEvent e) { 				num1Text.setText(""); 				num2Text.setText(""); 				num3Text.setText(""); 				 			} 		}); 		exitBtn.addActionListener(new ActionListener() { 			 			@Override 			public void actionPerformed(ActionEvent e) { 				System.exit(0); 				 			} 		}); 	} 	//让界面可见 	public void go() { 		jFrame.setVisible(true); 	} 	public static void main(String[] args) { 		new FirstGUI().go(); 	} }</code></pre> </div> 			                <div class="clearfix"></div>
                 <div class="col-md-12 mt-5">
                                         <p>上一个：<a href="/news/article-73797.htm">v-model修饰符</a></p>
+                                        <p>下一个：<a href="/news/article-74465.htm">SpringMVC获取请求参数笔记整理_java_</a></p>
                                     </div>
                                 </div>
                 <div class="col-md-3">
@@ -125,16 +126,16 @@
     </div>
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
-                        <li class="py-2"><a href="/news/article-71807.htm" title="同安宠物领养中心电话号码多少号（厦门同安宠物店在哪里）">同安宠物领养中心电话号码多少号（厦门同安宠物店在哪里）</a></li>
-                        <li class="py-2"><a href="/news/article-65388.htm" title="Vue实战篇：用树型组件实现一个文档目录结构">Vue实战篇：用树型组件实现一个文档目录结构</a></li>
-                        <li class="py-2"><a href="/news/article-58902.htm" title="vuex几大模块和Vuex助手使用详解">vuex几大模块和Vuex助手使用详解</a></li>
-                        <li class="py-2"><a href="/news/article-60583.htm" title="【mq】从零开始实现 mq-01-生产者、消费者启动">【mq】从零开始实现 mq-01-生产者、消费者启动</a></li>
+                        <li class="py-2"><a href="/news/article-73797.htm" title="v-model修饰符">v-model修饰符</a></li>
                         <li class="py-2"><a href="/news/article-61745.htm" title="flex布局实现 内容区域高度自适应">flex布局实现 内容区域高度自适应</a></li>
-                        <li class="py-2"><a href="/news/article-66004.htm" title="怎么领养狐狸（如何领养狐狸）">怎么领养狐狸（如何领养狐狸）</a></li>
-                        <li class="py-2"><a href="/news/article-66003.htm" title="北京动物防疫站地址（北京动物疫病防控中心）">北京动物防疫站地址（北京动物疫病防控中心）</a></li>
-                        <li class="py-2"><a href="/news/article-71806.htm" title="上海宠物领养中心真假鉴定电话（上海宠物领养救助站是真的吗）">上海宠物领养中心真假鉴定电话（上海宠物领养救助站是真的吗）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-2-18-free-node-subscribe.htm" title="最佳免费VPN | 2月18日21.6M/S|免费VPN/Clash/SSR/Shadowrocket/V2ray免费节点订阅分享">最佳免费VPN | 2月18日21.6M/S|免费VPN/Clash/SSR/Shadowrocket/V2ray免费节点订阅分享</a></li>
+                        <li class="py-2"><a href="/news/article-59439.htm" title="国内十大毒猫粮（2019中国十大毒猫粮）">国内十大毒猫粮（2019中国十大毒猫粮）</a></li>
+                        <li class="py-2"><a href="/news/article-74466.htm" title="动物疫苗检测（动物疫苗检测染菌可以报废）">动物疫苗检测（动物疫苗检测染菌可以报废）</a></li>
                         <li class="py-2"><a href="/free-nodes/2025-2-21-free-v2ray-subscribe.htm" title="最佳免费VPN | 2月21日20.9M/S|免费VPN/Clash/Shadowrocket/SSR/V2ray免费节点订阅分享">最佳免费VPN | 2月21日20.9M/S|免费VPN/Clash/Shadowrocket/SSR/V2ray免费节点订阅分享</a></li>
-                        <li class="py-2"><a href="/news/article-68522.htm" title="宠物寄养协议模板（宠物寄养协议样本简单）">宠物寄养协议模板（宠物寄养协议样本简单）</a></li>
+                        <li class="py-2"><a href="/news/article-66004.htm" title="怎么领养狐狸（如何领养狐狸）">怎么领养狐狸（如何领养狐狸）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-3-7-free-v2ray.htm" title="最佳免费VPN | 3月7日20.6M/S|免费VPN/SSR/Shadowrocket/Clash/V2ray免费节点订阅分享">最佳免费VPN | 3月7日20.6M/S|免费VPN/SSR/Shadowrocket/Clash/V2ray免费节点订阅分享</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-2-22-clash-v2ray-ss-ssr.htm" title="最佳免费VPN | 2月22日19.1M/S|免费VPN/SSR/Clash/V2ray/Shadowrocket免费节点订阅分享">最佳免费VPN | 2月22日19.1M/S|免费VPN/SSR/Clash/V2ray/Shadowrocket免费节点订阅分享</a></li>
+                        <li class="py-2"><a href="/news/article-71141.htm" title="国内宠物粮上市公司有哪些公司（宠物主粮上市公司）">国内宠物粮上市公司有哪些公司（宠物主粮上市公司）</a></li>
                     </ul>
     </div>
 </div>
@@ -146,7 +147,7 @@
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">42</span> <a href="/date/2025-03/" title="2025-03 归档">2025-03</a></h4>
+                <h4><span class="badge" style="float: right;">48</span> <a href="/date/2025-03/" title="2025-03 归档">2025-03</a></h4>
             </li>
                         <li class="py-2">
                 <h4><span class="badge" style="float: right;">42</span> <a href="/date/2025-02/" title="2025-02 归档">2025-02</a></h4>
