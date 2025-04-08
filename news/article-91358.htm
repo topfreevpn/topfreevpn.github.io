@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html xml:lang="zh-CN" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://topfreevpn.github.io/news/article-91358.htm" />
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>springboot自定义视图映射</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+        <meta name="description" content="在项目开发过程中，经常会涉及页面跳转问题，而且这个页面跳转没有任何业务逻辑过程，只是单纯的路由过程 ( 例如：点击一个按钮跳转到一个页面 ) 正常的写法是这样的： @RequestMapping("/" />
+    
+    <!-- Favicon -->
+    <link href="/assets/website/img/v2rayclashfree/favicon.ico" rel="icon">
+
+    <meta name="author" content="最佳免费VPN 机场订阅节点中文网">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://topfreevpn.github.io/news/article-91358.htm" />
+    <meta property="og:site_name" content="最佳免费VPN 机场订阅节点中文网" />
+    <meta property="og:title" content="springboot自定义视图映射" />
+    <meta property="og:image" content="https://topfreevpn.github.io/uploads/20240605/748f9791931953a2542a59435deb7dc9.webp" />
+        <meta property="og:release_date" content="2025-04-08T09:56:00" />
+    <meta property="og:updated_time" content="2025-04-08T09:56:00" />
+        <meta property="og:description" content="在项目开发过程中，经常会涉及页面跳转问题，而且这个页面跳转没有任何业务逻辑过程，只是单纯的路由过程 ( 例如：点击一个按钮跳转到一个页面 ) 正常的写法是这样的： @RequestMapping("/" />
+        
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="springboot自定义视图映射">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+    
+    <!-- Styles -->
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    <link href="/assets/website/css/v2rayclashfree/bootstrap.min.css" rel="stylesheet">
+    <link href="/assets/website/css/v2rayclashfree/fontawesome-all.min.css" rel="stylesheet">
+    <link href="/assets/website/css/v2rayclashfree/swiper.css" rel="stylesheet">
+    <link href="/assets/website/css/v2rayclashfree/styles.css" rel="stylesheet">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-Z43TVP4HME"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-Z43TVP4HME');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+        <!-- Navigation -->
+    <nav id="navbarExample" class="navbar navbar-expand-lg fixed-top navbar-light" aria-label="Main navigation">
+        <div class="container">
+            <a href="/" class="logo">
+                        <span>最佳免费VPN</span>
+                        </a>
+            <!-- Text Logo - Use this if you don't have a graphic logo -->
+            <!-- <a class="navbar-brand logo-text" href="index.html">Ioniq</a> -->
+            <button class="navbar-toggler p-0 border-0" type="button" id="navbarSideCollapse" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="navbar-collapse offcanvas-collapse" id="navbarsExampleDefault">
+                <ul class="navbar-nav ms-auto navbar-nav-scroll">
+                                        <li class="nav-item">
+                        <a class="nav-link" href="/">首页</a>
+                    </li>
+                                        <li class="nav-item">
+                        <a class="nav-link" href="/free-nodes/">免费节点</a>
+                    </li>
+                                        <li class="nav-item">
+                        <a class="nav-link" href="/paid-subscribe/">推荐机场</a>
+                    </li>
+                                        <li class="nav-item">
+                        <a class="nav-link" href="/news/">新闻资讯</a>
+                    </li>
+                                        <li class="nav-item">
+                        <a class="nav-link" href="/client.htm">客户端</a>
+                    </li>
+                                    </ul>
+            </div> <!-- end of navbar-collapse -->
+        </div> <!-- end of container -->
+    </nav> <!-- end of navbar -->
+    <!-- end of navigation -->
+    <!-- Header -->
+    <!-- Header -->
+    <header class="ex-header">
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-10 offset-xl-1">
+                    <h1>springboot自定义视图映射</h1>
+                    <p>
+                        <a href="/">首页</a> / <a href="/news/">新闻资讯</a> / <span>正文</span>
+                    </p>
+                </div> <!-- end of col -->
+            </div> <!-- end of row -->
+        </div> <!-- end of container -->
+    </header> <!-- end of ex-header -->
+    <!-- end of header -->
+    <!-- Details 1 -->
+    <div id="details" class="basic-1 bg-gray">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-9">
+                                    <input type="hidden" id="share-website-info" data-name="Clash Node官网订阅站" data-url="https://clashnode.github.io">
+                  				  				  				<div id="content_views" class="htmledit_views"> <p>在项目开发过程中，经常会涉及页面跳转问题，而且这个页面跳转没有任何业务逻辑过程，只是单纯的路由过程 ( 例如：点击一个按钮跳转到一个页面 )</p> <p>正常的写法是这样的：</p> <pre class="has"><code class="language-java">@RequestMapping("/testmvc")  public String view(){     return "abc";  }</code></pre> <p>现在只需要这样统一写，<strong><strong>此类必须在启动类所在包或者子包中</strong></strong>：</p> <pre class="has"><code class="language-java">@Configuration public class WebMvcConfig extends WebMvcConfigurerAdapter{ &nbsp;&nbsp; &nbsp;@Override &nbsp;&nbsp; &nbsp;public void addViewControllers(ViewControllerRegistry registry) { &nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;registry.addViewController("/testmvc").setViewName("/abc"); &nbsp;&nbsp; &nbsp;} }</code></pre> <p>页面：abc.flt 或者 abc.html</p> <pre class="has"><code class="language-html">&lt;html&gt; &lt;body&gt; &nbsp;&nbsp;&nbsp; hello &lt;/body&gt; &lt;/html&gt;</code></pre> <p></p> </div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-90660.htm">动物疫苗新法案解读最新版（动物疫苗立法）</a></p>
+                                        <p>下一个：<a href="/news/article-91360.htm">动物疫苗使用时的注意事项（动物疫苗使用时的注意事项不包括）</a></p>
+                                    </div>
+                                </div>
+                <div class="col-md-3">
+                    <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/news/article-83435.htm" title="同安宠物救助站电话地址（厦门同安宠物领养中心地址）">同安宠物救助站电话地址（厦门同安宠物领养中心地址）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-3-22-free-node-subscribe.htm" title="最佳免费VPN | 3月22日22.3M/S|免费VPN/SSR/Clash/V2ray/Shadowrocket免费节点订阅分享">最佳免费VPN | 3月22日22.3M/S|免费VPN/SSR/Clash/V2ray/Shadowrocket免费节点订阅分享</a></li>
+                        <li class="py-2"><a href="/news/article-84859.htm" title="宠物粮食品牌都有什么名字呢英文（宠物粮食品牌起名大全）">宠物粮食品牌都有什么名字呢英文（宠物粮食品牌起名大全）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-3-31-node-share.htm" title="最佳免费VPN | 3月31日20.4M/S|免费VPN/V2ray/Shadowrocket/SSR/Clash免费节点订阅分享">最佳免费VPN | 3月31日20.4M/S|免费VPN/V2ray/Shadowrocket/SSR/Clash免费节点订阅分享</a></li>
+                        <li class="py-2"><a href="/news/article-90660.htm" title="动物疫苗新法案解读最新版（动物疫苗立法）">动物疫苗新法案解读最新版（动物疫苗立法）</a></li>
+                        <li class="py-2"><a href="/news/article-83434.htm" title="附近宠物收容中心电话（宠物上门回收）">附近宠物收容中心电话（宠物上门回收）</a></li>
+                        <li class="py-2"><a href="/news/article-82008.htm" title="动物接种疫苗的好处和坏处有哪些图片大全（动物疫苗的使用方法及注意事项）">动物接种疫苗的好处和坏处有哪些图片大全（动物疫苗的使用方法及注意事项）</a></li>
+                        <li class="py-2"><a href="/news/article-89208.htm" title="mysql数据库中字段为时间类型要怎么什么类型表示">mysql数据库中字段为时间类型要怎么什么类型表示</a></li>
+                        <li class="py-2"><a href="/news/article-73131.htm" title="深圳宠物领养中心官网电话 深圳宠物领养中心官网电话号码">深圳宠物领养中心官网电话 深圳宠物领养中心官网电话号码</a></li>
+                        <li class="py-2"><a href="/news/article-75150.htm" title="SpringBoot 2.3.x 分层构建 Docker 镜像实践详解">SpringBoot 2.3.x 分层构建 Docker 镜像实践详解</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">24</span> <a href="/date/2025-04/" title="2025-04 归档">2025-04</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">90</span> <a href="/date/2025-03/" title="2025-03 归档">2025-03</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+
+
+                </div>
+            </div>
+        </div> <!-- end of container -->
+    </div> <!-- end of basic-1 -->
+    <!-- end of details 1 -->
+        <!-- Copyright -->
+    <div class="copyright">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                                        <p>
+                                                <a href="/">首页</a> |
+                                                <a href="/free-nodes/">免费节点</a> |
+                                                <a href="/paid-subscribe/">推荐机场</a> |
+                                                <a href="/news/">新闻资讯</a> |
+                                                <a href="/client.htm">客户端</a> |
+                                                <a href="/about-us.htm">关于我们</a> |
+                        <a href="/disclaimer.htm">免责申明</a> |
+                        <a href="/privacy.htm">隐私申明</a> |
+                        <a href="/sitemap.xml">网站地图</a>
+                    </p>
+                    <p class="p-small">
+                        最佳免费VPN 机场订阅节点中文网 版权所有
+                        <br />
+                        Powered by WordPress
+                    </p>
+                </div> <!-- end of col -->
+            </div> <!-- enf of row -->
+        </div> <!-- end of container -->
+    </div> <!-- end of copyright -->
+    <!-- end of copyright -->
+    <!-- Back To Top Button -->
+    <button onclick="topFunction()" id="myBtn">
+        <img src="/assets/website/img/v2rayclashfree/up-arrow.png" alt="alternative">
+    </button>
+    <!-- end of back to top button -->
+    <!-- Scripts -->
+    <script src="/assets/website/js/frontend/v2rayclashfree/jquery-3.2.1.min.js"></script>
+    <script src="/assets/website/js/frontend/v2rayclashfree/bootstrap.min.js"></script> <!-- Bootstrap framework -->
+    <script src="/assets/website/js/frontend/v2rayclashfree/swiper.min.js"></script> <!-- Swiper for image and text sliders -->
+    <script src="/assets/website/js/frontend/v2rayclashfree/purecounter.min.js"></script> <!-- Purecounter counter for statistics numbers -->
+    <script src="/assets/website/js/frontend/v2rayclashfree/replaceme.min.js"></script> <!-- ReplaceMe for rotating text -->
+    <script src="/assets/website/js/frontend/v2rayclashfree/scripts.js"></script> <!-- Custom scripts -->
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script>
+    <script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
