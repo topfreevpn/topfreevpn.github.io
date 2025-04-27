@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html xml:lang="zh-CN" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://topfreevpn.github.io/news/article-104022.htm" />
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>kubernetes配置ingress使用hostNetwork作为接入端口</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+        <meta name="description" content="概述 网上多数教程是将ingress开启nodeport，这种方式也能达到暴露ingress端口到主机的目的，但是要么需要制定端口，要么使用随机端口。  而另外一种方式是，通过hostNetwork方" />
+    
+    <!-- Favicon -->
+    <link href="/assets/website/img/v2rayclashfree/favicon.ico" rel="icon">
+
+    <meta name="author" content="最佳免费VPN 机场订阅节点中文网">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://topfreevpn.github.io/news/article-104022.htm" />
+    <meta property="og:site_name" content="最佳免费VPN 机场订阅节点中文网" />
+    <meta property="og:title" content="kubernetes配置ingress使用hostNetwork作为接入端口" />
+    <meta property="og:image" content="https://topfreevpn.github.io/uploads/20240605/04d4ba831886b6c1962941e76b8cdd64.webp" />
+        <meta property="og:release_date" content="2025-04-25T07:09:09" />
+    <meta property="og:updated_time" content="2025-04-25T07:09:09" />
+        <meta property="og:description" content="概述 网上多数教程是将ingress开启nodeport，这种方式也能达到暴露ingress端口到主机的目的，但是要么需要制定端口，要么使用随机端口。  而另外一种方式是，通过hostNetwork方" />
+        
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="kubernetes配置ingress使用hostNetwork作为接入端口">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+    
+    <!-- Styles -->
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    <link href="/assets/website/css/v2rayclashfree/bootstrap.min.css" rel="stylesheet">
+    <link href="/assets/website/css/v2rayclashfree/fontawesome-all.min.css" rel="stylesheet">
+    <link href="/assets/website/css/v2rayclashfree/swiper.css" rel="stylesheet">
+    <link href="/assets/website/css/v2rayclashfree/styles.css" rel="stylesheet">
+    <link rel="stylesheet" href="/assets/website/css/G.css" />
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-Z43TVP4HME"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-Z43TVP4HME');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+        <!-- Navigation -->
+    <nav id="navbarExample" class="navbar navbar-expand-lg fixed-top navbar-light" aria-label="Main navigation">
+        <div class="container">
+            <a href="/" class="logo">
+                        <span>最佳免费VPN</span>
+                        </a>
+            <!-- Text Logo - Use this if you don't have a graphic logo -->
+            <!-- <a class="navbar-brand logo-text" href="index.html">Ioniq</a> -->
+            <button class="navbar-toggler p-0 border-0" type="button" id="navbarSideCollapse" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="navbar-collapse offcanvas-collapse" id="navbarsExampleDefault">
+                <ul class="navbar-nav ms-auto navbar-nav-scroll">
+                                        <li class="nav-item">
+                        <a class="nav-link" href="/">首页</a>
+                    </li>
+                                        <li class="nav-item">
+                        <a class="nav-link" href="/free-nodes/">免费节点</a>
+                    </li>
+                                        <li class="nav-item">
+                        <a class="nav-link" href="/paid-subscribe/">推荐机场</a>
+                    </li>
+                                        <li class="nav-item">
+                        <a class="nav-link" href="/news/">新闻资讯</a>
+                    </li>
+                                        <li class="nav-item">
+                        <a class="nav-link" href="/client.htm">客户端</a>
+                    </li>
+                                    </ul>
+            </div> <!-- end of navbar-collapse -->
+        </div> <!-- end of container -->
+    </nav> <!-- end of navbar -->
+    <!-- end of navigation -->
+    <!-- Header -->
+    <!-- Header -->
+    <header class="ex-header">
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-10 offset-xl-1">
+                    <h1>kubernetes配置ingress使用hostNetwork作为接入端口</h1>
+                    <p>
+                        <a href="/">首页</a> / <a href="/news/">新闻资讯</a> / <span>正文</span>
+                    </p>
+                </div> <!-- end of col -->
+            </div> <!-- end of row -->
+        </div> <!-- end of container -->
+    </header> <!-- end of ex-header -->
+    <!-- end of header -->
+    <!-- Details 1 -->
+    <div id="details" class="basic-1 bg-gray">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-9">
+                                    <input type="hidden" id="share-website-info" data-name="Clash Node官网订阅站" data-url="https://clashnode.github.io">
+                <div class="xcblog-blog-detail xcblog-blog-detail-defined">
+                      				  				  				<div id="content_views" class="markdown_views prism-atom-one-light"> <h2><a id="_1" rel="nofollow"></a>概述</h2> <p>网上多数教程是将ingress开启nodeport，这种方式也能达到暴露ingress端口到主机的目的，但是要么需要制定端口，要么使用随机端口。</p> <p> 而另外一种方式是，通过hostNetwork方式共享主机网络，通过nodeSelector来固定选取的node节点，从而使外部流量通过F5/A10/nginx接入后负载到nodeSelector选择的节点上。</p> <h2><a id="ingress_10" rel="nofollow"></a>官方ingress的部署文档</h2> <p>https://github.com/kubernetes/ingress-nginx/blob/nginx-0.20.0/docs/deploy/index.md</p> <ul> <li>环境信息<br /> kubernetes: 1.18.3<br /> ingress：0.2.0</li> </ul> <h2><a id="_ingress_16" rel="nofollow"></a>配置 ingress</h2> <ol> <li>拉取ingress的定义文件</li> </ol> <pre><code class="prism language-shell"><span class="token function">wget</span> https://github.com/kubernetes/ingress-nginx/blob/nginx-0.20.0/docs/deploy/index.md</code></pre> <ol start="2"> <li>给node设置标签</li> </ol> <pre><code class="prism language-shell">kubectl label node  192.168.145.11 lb_node<span class="token operator">=</span>true</code></pre> <ol start="3"> <li>修改ingress定义文件</li> </ol> <pre><code class="prism language-yaml"><span class="token comment">#修改kind类型</span><span class="token punctuation">...</span><span class="token key atrule">kind</span><span class="token punctuation">:</span> DaemonSet<span class="token comment">#在DaemonSet.spec.template.spec新增以下配置</span><span class="token punctuation">...</span>.<span class="token key atrule">nodeSelector</span><span class="token punctuation">:</span><span class="token key atrule">kubernetes.io/os</span><span class="token punctuation">:</span> linux<span class="token key atrule">lb-node</span><span class="token punctuation">:</span><span class="token boolean important">true</span><span class="token key atrule">hostNetwork</span><span class="token punctuation">:</span><span class="token boolean important">true</span><span class="token punctuation">...</span>.</code></pre> <p>如果需要在master节点或者设置污点的节点上运行可以如下设置</p> <pre><code class="prism language-yaml"><span class="token comment">#在DaemonSet.spec.template.spec新增以下配置</span><span class="token punctuation">...</span>..<span class="token key atrule">tolerations</span><span class="token punctuation">:</span><span class="token punctuation">-</span><span class="token key atrule">key</span><span class="token punctuation">:</span> CriticalAddonsOnly<span class="token key atrule">operator</span><span class="token punctuation">:</span> Exists<span class="token punctuation">-</span><span class="token key atrule">operator</span><span class="token punctuation">:</span> Exists<span class="token key atrule">priorityClassName</span><span class="token punctuation">:</span> system<span class="token punctuation">-</span>cluster<span class="token punctuation">-</span>critical<span class="token punctuation">...</span>..</code></pre> <ul> <li>为保证master节点稳定运行，不建议将ingress运行到master节点</li> </ul> <ol start="4"> <li>创建ingress资源</li> </ol> <pre><code class="prism language-shell"> kubectl apply -f ingress-nginx-daemon.yaml</code></pre> <ol start="5"> <li>查看资源是否常见成功</li> </ol> <pre><code class="prism language-shell">kubectl get ds -A  kubectl get pods -A -owide</code></pre> </div> 			                </div>
+                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-103334.htm">农大动物医院怎么挂号 农大动物医院怎么挂号的少</a></p>
+                                        <p>下一个：<a href="/news/article-104023.htm">STM8S103F3P6 的开发, 烧录和Debug笔记 &#8211; Milton _在线工具</a></p>
+                                    </div>
+                                </div>
+                <div class="col-md-3">
+                    <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/news/article-95886.htm" title="宠物饲料加工厂加盟电话地址查询（宠物饲料加工企业）">宠物饲料加工厂加盟电话地址查询（宠物饲料加工企业）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-3-24-free-node-subscribe-links.htm" title="最佳免费VPN | 3月24日21.7M/S|免费VPN/Shadowrocket/V2ray/SSR/Clash免费节点订阅分享">最佳免费VPN | 3月24日21.7M/S|免费VPN/Shadowrocket/V2ray/SSR/Clash免费节点订阅分享</a></li>
+                        <li class="py-2"><a href="/news/article-69832.htm" title="打动物疫苗不能吃什么东西和水果蔬菜（打动物疫苗有什么过敏反应）">打动物疫苗不能吃什么东西和水果蔬菜（打动物疫苗有什么过敏反应）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-3-14-node-share.htm" title="最佳免费VPN | 3月14日19.9M/S|免费VPN/Shadowrocket/Clash/V2ray/SSR免费节点订阅分享">最佳免费VPN | 3月14日19.9M/S|免费VPN/Shadowrocket/Clash/V2ray/SSR免费节点订阅分享</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-4-7-free-high-speed-nodes.htm" title="最佳免费VPN | 4月7日22.6M/S|免费VPN/Shadowrocket/V2ray/Clash/SSR免费节点订阅分享">最佳免费VPN | 4月7日22.6M/S|免费VPN/Shadowrocket/V2ray/Clash/SSR免费节点订阅分享</a></li>
+                        <li class="py-2"><a href="/news/article-104950.htm" title="动物注射疫苗注意事项有哪些内容和要求（动物疫苗使用时的注意事项有哪些）">动物注射疫苗注意事项有哪些内容和要求（动物疫苗使用时的注意事项有哪些）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-3-11-free-node-subscribe-links.htm" title="最佳免费VPN | 3月11日19.2M/S|免费VPN/SSR/Shadowrocket/Clash/V2ray免费节点订阅分享">最佳免费VPN | 3月11日19.2M/S|免费VPN/SSR/Shadowrocket/Clash/V2ray免费节点订阅分享</a></li>
+                        <li class="py-2"><a href="/news/article-87731.htm" title="宠物店加盟大概要多少钱（宠物店加盟需要注意哪些坑）">宠物店加盟大概要多少钱（宠物店加盟需要注意哪些坑）</a></li>
+                        <li class="py-2"><a href="/news/article-72460.htm" title="mysql 时间戳定义_mysql之TIMESTAMP（时间戳）用法详解">mysql 时间戳定义_mysql之TIMESTAMP（时间戳）用法详解</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-3-4-free-v2ray-subscribe.htm" title="最佳免费VPN | 3月4日21.2M/S|免费VPN/Clash/V2ray/SSR/Shadowrocket免费节点订阅分享">最佳免费VPN | 3月4日21.2M/S|免费VPN/Clash/V2ray/SSR/Shadowrocket免费节点订阅分享</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">81</span> <a href="/date/2025-04/" title="2025-04 归档">2025-04</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">90</span> <a href="/date/2025-03/" title="2025-03 归档">2025-03</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+
+
+                </div>
+            </div>
+        </div> <!-- end of container -->
+    </div> <!-- end of basic-1 -->
+    <!-- end of details 1 -->
+        <!-- Copyright -->
+    <div class="copyright">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                                        <p>
+                                                <a href="/">首页</a> |
+                                                <a href="/free-nodes/">免费节点</a> |
+                                                <a href="/paid-subscribe/">推荐机场</a> |
+                                                <a href="/news/">新闻资讯</a> |
+                                                <a href="/client.htm">客户端</a> |
+                                                <a href="/about-us.htm">关于我们</a> |
+                        <a href="/disclaimer.htm">免责申明</a> |
+                        <a href="/privacy.htm">隐私申明</a> |
+                        <a href="/sitemap.xml">网站地图</a>
+                    </p>
+                    <p class="p-small">
+                        最佳免费VPN 机场订阅节点中文网 版权所有
+                        <br />
+                        Powered by WordPress
+                    </p>
+                </div> <!-- end of col -->
+            </div> <!-- enf of row -->
+        </div> <!-- end of container -->
+    </div> <!-- end of copyright -->
+    <!-- end of copyright -->
+    <!-- Back To Top Button -->
+    <button onclick="topFunction()" id="myBtn">
+        <img src="/assets/website/img/v2rayclashfree/up-arrow.png" alt="alternative">
+    </button>
+    <!-- end of back to top button -->
+    <!-- Scripts -->
+    <script src="/assets/website/js/frontend/v2rayclashfree/jquery-3.2.1.min.js"></script>
+    <script src="/assets/website/js/frontend/v2rayclashfree/bootstrap.min.js"></script> <!-- Bootstrap framework -->
+    <script src="/assets/website/js/frontend/v2rayclashfree/swiper.min.js"></script> <!-- Swiper for image and text sliders -->
+    <script src="/assets/website/js/frontend/v2rayclashfree/purecounter.min.js"></script> <!-- Purecounter counter for statistics numbers -->
+    <script src="/assets/website/js/frontend/v2rayclashfree/replaceme.min.js"></script> <!-- ReplaceMe for rotating text -->
+    <script src="/assets/website/js/frontend/v2rayclashfree/scripts.js"></script> <!-- Custom scripts -->
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script>
+    <script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
